@@ -1,11 +1,43 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block titulo %}
-    Mi Negocio
-{% endblock  %}
+
+{% include 'core/componentes/titulo1.html' with titulo='App Moradita' %}
+                
+{% endblock titulo %}
 
 {% block contenido %}
-    <a href="{% url 'cliente:home' %}">Ir a Clientes</a>
-    <a href="{% url 'producto:home' %}">Ir a Productos</a>
-{% endblock contenido %}
+ <!-- Heading Row-->
+ <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0"
+             src="{% static 'core/img/moradita.webp' %}"
+             alt="..." />
+    </div>
+    <div class="col-lg-5">
+        <h1 class="font-weight-light">Moradita</h1>
+        <p>
+            La "moradita", como un nido acogedor entre las ramas de un árbol. Con cada pensamiento, es como construir un nuevo rincón de sueños y risas. Es el lugar donde tus recuerdos se acomodan como juguetes en un cofre, llenando el espacio con colores y alegrías. Es el refugio donde la imaginación vuela alto y los corazones jóvenes encuentran su morada más dulce.        </p>
+        <a class="btn btn-primary" href="https://wa.me/59895491797" target="_blank">Whatsapp</a>
+    </div>
+</div>
+<!-- Call to Action-->
+<div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body">
+        <p class="text-white m-0">
+            This call to action card is a great place to showcase some important information or display a clever tagline!
+        </p>
+    </div>
+</div>
+<!-- Content Row-->
+<div class="row gx-4 gx-lg-5">
+    {% include 'core/componentes/card.html' with Titulo="Mesa" texto="Mesa ratona para aprovechar el espacio." %}
+    {% include 'core/componentes/card.html' with Titulo="Cama" texto="Cama para tener dulces sueños" %}
+    {% include 'core/componentes/card.html' with Titulo="Sillón" texto="Sillón para disfrutar tu lectura a pleno" %}
+    {% include 'core/componentes/card.html' with Titulo="Butaca" texto="Butacas para invitar amigos" %}
+
+
+</div>
+    {% endblock contenido %}
     
