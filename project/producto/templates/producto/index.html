@@ -1,12 +1,15 @@
 {% extends 'core/index.html' %}
 {% block titulo %}
-
-{% include 'core/componentes/titulo1.html' with titulo='Productos' %}
-                
+    {% include 'core/componentes/titulo1.html' with titulo='Productos' %}
 {% endblock titulo %}
-
 {% block contenido %}
-    <ul>
-        {% for producto in productos %}<li>{{ producto }}</li>{% endfor %}
-    </ul>
-{% endblock contenido %}
+    <p>
+        <a href="productocategoria/create">Crear Categoría de Productos</a>
+        <p>
+    <p>
+        <a href="productocategoria/buscar">Buscar Categoría de Productos</a>
+        <p>
+            <ul>
+                {% for producto in productos %}<li>{{ producto }}</li>{% endfor %}
+            </ul>
+        {% endblock contenido %}
