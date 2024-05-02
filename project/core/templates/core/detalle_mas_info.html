@@ -1,0 +1,16 @@
+{% extends 'core/index.html' %}
+
+{% block contenido %}
+        <h2 class="card-title">{{ datos_tarjeta.titulo }}</h2>
+        <img src="{{ datos_tarjeta.imagen }}"
+             class="card-img-top"
+             alt="Imagen de la tarjeta"
+             style="max-width: 20%; height: auto;">
+            <p class="card-text">{{ datos_tarjeta.texto }}</p>
+            <p class="card-text">{{ datos_tarjeta.precio }}</p>
+
+<div class="fs-3 pb-4">
+    <a href="{% url 'core:home' %}">Volver a Inicio</a>
+</div>
+{% endblock contenido %}
+

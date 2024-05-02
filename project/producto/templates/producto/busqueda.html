@@ -1,21 +1,16 @@
 {% extends 'core/base.html' %}
-
 {% block titulo %}
-
-{% include 'core/componentes/titulo1.html' with titulo='Categoría de Productos: Busqueda' %}
-                
+    {% include 'core/componentes/titulo1.html' with titulo='Categoría de Productos: Busqueda' %}
 {% endblock titulo %}
-
 {% block contenido %}
-
-<p> El Grupo: {{producto}} se encuentra en la base de datos.</p>
-
-{% if producto %}
-<ul>
-    {% for producto in productos%}
-    <li>{{producto.nombre}}</li>
-    <li>{{producto.descripcion}}</li>
-{% endfor %}
-</ul>
-{% endif %}
+    <p>Los siguientes grupos se encuentra en la base de datos:</p>
+    {% if resultados %}
+        <ul>
+            {% for producto in resultados %}
+                <li>{{ producto.nombre }}</li>
+                    ->{{ producto.descripcion }}
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock contenido %}
+

@@ -1,3 +1,14 @@
+# Página Web Moradita
+>Orientada a la venta de artículos de hogar.
+>Tiene 3 Apps: Clientes, About y Categoría de Productos (en la base es productos).
+>Se pueden generar formularios en las 3 apps. Para el proyecto final imagino los formularios puedan estar visibles solo para X rol, Ejemplo: Admin/SuperUser.
+>En Categoría de Productos se pueden crear categorías así como buscar. Por ejemplo: si buscamos limpieza se obtiene dicha categoría y la descripción.
+>En la página principal se puede seleccionar el botón de "Whatsapp" y deriva a mi número de teléfono.
+>En los artículos y se selecciona "Más info" figura el precio, así como una descripción de la referencia.
+>En Python hay muchos archivos que no se están utilizando porque si bien aún no los he puesto en práctica para el proyecto final los visualizo, como el CRUDE y por ende ya lo dejé presentado en dicha App. 
+
+
+
 # Comandos
 
 `mkdir nueva_carpeta`

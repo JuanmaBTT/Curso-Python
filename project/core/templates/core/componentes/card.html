@@ -1,13 +1,12 @@
 <div class="col-md-4 mb-5">
     <div class="card h-100">
+        <!-- Aquí utilizamos la variable imagen para mostrar la imagen -->
+        <img src="{{ imagen }}" class="card-img-top" alt="Imagen de la tarjeta">
         <div class="card-body">
-            <h2 class="card-title">{{Titulo}}</h2>
-            <p class="card-text">
-                {{texto}}
-            </p>
+            <h2 class="card-title">{{ titulo }}</h2>
         </div>
         <div class="card-footer">
-            <a class="btn btn-primary btn-sm" href="#!">Más Info</a>
+            <a class="btn btn-primary btn-sm" href="{% url 'core:detalle_producto' title=titulo %}">Más Info</a>
         </div>
     </div>
 </div>

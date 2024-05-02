@@ -15,10 +15,10 @@ class Migration(migrations.Migration):
             name='About',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nombre', models.CharField(max_length=50, unique=True)),
-                ('apellido', models.CharField(max_length=50, unique=True)),
+                ('nombre', models.CharField(max_length=50)),
+                ('apellido', models.CharField(max_length=50)),
                 ('descripcion', models.CharField(blank=True, max_length=300, null=True, verbose_name='descripción')),
-            ],
+                ],
             options={
                 'verbose_name': 'About',
                 'verbose_name_plural': 'About Us',

@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
             name='Cliente',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('documento', models.CharField(max_length=50)),
                 ('nombre', models.CharField(max_length=50)),
                 ('apellido', models.CharField(max_length=50)),
                 ('nacimiento', models.DateField(null=True)),

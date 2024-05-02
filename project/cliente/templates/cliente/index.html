@@ -14,7 +14,7 @@
             <div class="col mb-3 ">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-title ">{{ cliente.nombre }}, {{ cliente.apellido }}</h2>
+                        <h2 class="card-title ">{{ cliente.nombre }} {{ cliente.apellido }}</h2>
                         <p class="card-text text-muted">Nacimiento: {{ cliente.nacimiento }}</p>
                         {% if cliente.pais_origen_id %}
                             <p class="card-text">{{ cliente.pais_origen_id }}</p>

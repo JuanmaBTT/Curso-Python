@@ -26,16 +26,14 @@
 <div class="card text-white bg-secondary my-5 py-4 text-center">
     <div class="card-body">
         <p class="text-white m-0">
-            This call to action card is a great place to showcase some important information or display a clever tagline!
-        </p>
+        Embellece tu hogar con muebles que encantan. ¡Descubre nuestra colección y haz de tu espacio un lugar único y acogedor!        </p>
     </div>
 </div>
 <!-- Content Row-->
 <div class="row gx-4 gx-lg-5">
-    {% include 'core/componentes/card.html' with Titulo="Mesa" texto="Mesa ratona para aprovechar el espacio." %}
-    {% include 'core/componentes/card.html' with Titulo="Cama" texto="Cama para tener dulces sueños" %}
-    {% include 'core/componentes/card.html' with Titulo="Sillón" texto="Sillón para disfrutar tu lectura a pleno" %}
-    {% include 'core/componentes/card.html' with Titulo="Butaca" texto="Butacas para invitar amigos" %}
+    {% for tarjeta in datos_tarjetas %}
+    {% include 'core/componentes/card.html' with titulo=tarjeta.titulo texto=tarjeta.texto imagen=tarjeta.imagen %}
+{% endfor %}
 </div>
     {% endblock contenido %}
     

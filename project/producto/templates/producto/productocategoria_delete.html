@@ -1,19 +1,16 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-
-{% include 'core/componentes/titulo1.html' with titulo='Categoría de Productos: Creación' %}
-
+    Productos: Borrar una Categoría de Productos
 {% endblock titulo %}
 
 {% block contenido %}
     
+    <p class="fs-5 fst-italic">¿Confirma eliminar "{{ producto.nombre }}"?</p>
+
     <form method="post">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-danger">Confirmar</button>
     </form>
     <div class="fs-3 pb-4">
         <a href="{% url 'producto:home' %}">Volver al inicio de Producto</a>
