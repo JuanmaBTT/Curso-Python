@@ -1,14 +1,16 @@
 # Página Web Moradita
-
->Orientada a la venta de artículos y accesorios para el hogar.
->Tiene 3 Apps principales: Clientes, About(Sobre Nosotros) y Productos (en la cual está Categoría Productos y Productos).
->Tiene múltiples formularios: Para los usuarios corrientes el registrarse y loguearse.
->Para el admin, además de ellos, tiene CRUDE en Categoría de Productos, Productos, "Sobre Nosotros" y también se puede listar, borrar y editar clientes, además de agregar países para que los clientes indiquen como propios.Esto fue uno de los avances vs la versión pasada que indiqué: "Se pueden generar formularios en las 3 apps. Para el proyecto final imagino los formularios puedan estar visibles solo para X rol, Ejemplo: Admin/SuperUser" y así lo hice.
->En Categoría de Productos se pueden crear categorías así como buscar, editar o borrar. Por ejemplo: si buscamos limpieza se obtiene dicha categoría y la descripción. También pueden probar con Productos, About o Clientes.
->En el navbar añadí el logo de Whatsapp para que, en caso de clickear allí, la página derive a mi contacto y así poder concretar la venta. Antes estaba como un botón en la página principal y entiendo esto es una sustancial mejora porque siempre está visible para el cliente.
->Otra sustancial mejora que se realizó es que en la página principal ya no están más los productos, sino las categorías y a su vez relacioné los productos a esas categorías, por lo que se generan secciones automáticamente ante la creación tanto de Categorías como de Prodcutos. En las Categorías si se selección "Más Info" dirige a los artículos de dicha categoría y si a los artículos se le selecciona "Más info" figura el precio, así como una descripción de la referencia.
->Por último depure prácticamente todo lo que estaba en Python y no se estaba utilizando para dejar lo más prolijo el backend y no solo enfocarme en el frontend.
->Creo que quedó muy buena la página y estoy muy orgulloso por el tiempo y pasión que le dedique a la misma.
+> Si no se ve el fondo probar con modo incógnito de Chrome u otro navegador, creo que vale la pena verlo ya que toda la tipografía esta en función a ello.
+> Dejo tanto aquí como en el comentario de Coderhouse el link del video mostrando las funcionalidades y requisitos solicitados de la Entrega Final: https://drive.google.com/file/d/1Sxn2kAw_8zbFPjF5f9UoR8248suzx8Kx/view?usp=sharing
+> El usuario del superuser es admin y contraseña 123.
+> La página está orientada a la venta de artículos y accesorios para el hogar.
+> Tiene 3 Apps principales: Clientes, About(Sobre Nosotros) y Productos (en la cual está Categoría Productos y Productos).
+> Tiene múltiples formularios: Para los usuarios corrientes el registrarse y loguearse.
+> Para el admin, además de ellos, tiene CRUDE en Categoría de Productos, Productos, "Sobre Nosotros" y también se puede listar, borrar y editar clientes, además de agregar países para que los clientes indiquen como propios.Esto fue uno de los avances vs la versión pasada que indiqué: "Se pueden generar formularios en las 3 apps. Para el proyecto final imagino los formularios puedan estar visibles solo para X rol, Ejemplo: Admin/SuperUser" y así lo hice.
+> En Categoría de Productos se pueden crear categorías así como buscar, editar o borrar. Por ejemplo: si buscamos limpieza se obtiene dicha categoría y la descripción. También pueden probar con Productos, About o Clientes.
+> En el navbar añadí el logo de Whatsapp para que, en caso de clickear allí, la página derive a mi contacto y así poder concretar la venta. Antes estaba como un botón en la página principal y entiendo esto es una sustancial mejora porque siempre está visible para el cliente.
+> Otra sustancial mejora que se realizó es que en la página principal ya no están más los productos, sino las categorías y a su vez relacioné los productos a esas categorías, por lo que se generan secciones automáticamente ante la creación tanto de Categorías como de Prodcutos. En las Categorías si se selección "Más Info" dirige a los artículos de dicha categoría y si a los artículos se le selecciona "Más info" figura el precio, así como una descripción de la referencia.
+> Por último depure prácticamente todo lo que estaba en Python y no se estaba utilizando para dejar lo más prolijo el backend y no solo enfocarme en el frontend.
+> Creo que quedó muy buena la página y estoy muy orgulloso por el tiempo y pasión que le dedique a la misma.
 
 Ojalá que les guste!!
 
