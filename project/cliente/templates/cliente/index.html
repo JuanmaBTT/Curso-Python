@@ -5,9 +5,8 @@
                 
 {% endblock titulo %}
 {% block contenido %}
-<p>
-    <a href="cliente/create">Crear Cliente</a>
-    <p>
+<a class="btn btn-outline-light  mb-3" style="display: flex; justify-content: center; align-items: center;" href="{% url 'cliente:pais_create' %}" role="button">Crear Nuevo País</a>
+<a class="btn btn-outline-light mb-3" style="display: flex; justify-content: center; align-items: center;" href="{% url 'cliente:cliente_list' %}" role="button">Listar Clientes</a>
 
     <div class="row row-cols-1 row-cols-md-2">
         {% for cliente in clientes %}

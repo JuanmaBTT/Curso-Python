@@ -4,7 +4,17 @@ from django.views.generic import CreateView, DeleteView, DetailView, ListView, U
 from django.views import View
 from .models import ProductoCategoria
 from django.http import HttpResponse
-
+from django.db.models.query import QuerySet
+from django.db.models import Q
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import (
+    CreateView,
+    DeleteView,
+    DetailView,
+    ListView,
+    UpdateView,
+)
+from django.db.models import Count
 from . import forms, models
 
 
@@ -15,7 +25,16 @@ def home(request):
 
 
 class ProductoCategoriaList(ListView):
-    model = models.ProductoCategoria
+    model = ProductoCategoria
+    #template_name = 'productocategoria_list.html'  # Nombre de tu plantilla HTML
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.request.GET.get("consulta"):
+            consulta = self.request.GET.get("consulta")
+            queryset = queryset.filter(nombre__icontains=consulta)
+        queryset = queryset.annotate(num_productos=Count('producto'))
+        return queryset
 
 class ProductoCategoriaCreate(CreateView):
     model = models.ProductoCategoria
@@ -38,22 +57,37 @@ class ProductoCategoriaDelete(DeleteView):
     model = models.ProductoCategoria
     success_url = reverse_lazy("producto:productocategoria_list")
 
-class ProductoCategoriaBuscar(View):
-    def get(self, request):
-        return render(request, 'productocategoria_buscar.html', {'resultados': None})
+# *** PRODUCTO
 
-    def post(self, request):
-        palabra_buscar = request.POST.get('palabra_buscar', '')
-        resultados = ProductoCategoria.objects.filter(nombre__icontains=palabra_buscar)
-        return render(request, 'productocategoria_buscar.html', {'resultados': resultados})
-def productocategoria_buscar(request):
-    return render(request,"producto/productocategoria_buscar.html", )
-def buscar(request):
-    if request.GET ['consulta']:
-        consulta = request.GET ['consulta']
-        resultados = models.ProductoCategoria.objects.filter(nombre__icontains=consulta)
-        context = {"resultados": resultados}
-        return render(request,"producto/busqueda.html", context)
-    else:
-        respuesta = f"No se enviaron datos."
-    return HttpResponse(respuesta)
+
+class ProductoList(ListView):
+    model = models.Producto
+
+    def get_queryset(self) -> QuerySet:
+        if self.request.GET.get("consulta"):
+            consulta = self.request.GET.get("consulta")
+            object_list = models.Producto.objects.filter(nombre__icontains=consulta)
+        else:
+            object_list = models.Producto.objects.all()
+        return object_list
+
+
+class ProductoCreate(CreateView):
+    model = models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:home")
+
+
+class ProductoUpdate(UpdateView):
+    model = models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:producto_list")
+
+
+class ProductoDetail(DetailView):
+    model = models.Producto
+
+
+class ProductoDelete(LoginRequiredMixin, DeleteView):
+    model = models.Producto
+    success_url = reverse_lazy("producto:producto_list")

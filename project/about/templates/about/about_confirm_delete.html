@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+{% include 'core/componentes/titulo1.html' with titulo='Sobre Nosotros: Borrar Integrante' %}
+{% endblock titulo %}
+
+{% block contenido %}
+    
+    <p class="fs-5 fst-italic" style="color: white;">¿Confirma eliminar a "{{ object.nombre }} {{ object.apellido }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" style="margin-bottom: 20px;" class="btn btn-danger">Confirmar</button>
+    </form>
+    <div class="fs-3 pb-4">
+        <a class="btn btn-secondary"
+        style="display: flex;
+           justify-content: center;
+           align-items: center" class="btn btn-primary" style="margin-bottom: 20px;" href="{% url 'about:home' %}">Volver al inicio de Sobre Nosotros</a>
+    </div>
+
+{% endblock contenido %}

@@ -1,8 +1,13 @@
 <div class="col-md-4 mb-5">
     <div class="card h-100">
-        <!-- Aquí utilizamos la variable imagen para mostrar la imagen -->
-        <img src="{{ imagen }}" class="card-img-top" alt="Imagen de la tarjeta">
-        <div class="card-body">
+        {% if imagen_url %}
+            <!-- Utiliza la variable imagen_url para la URL de la imagen si está disponible -->
+            <img src="{{ imagen_url }}" class="card-img-top" alt="Imagen de la tarjeta">
+        {% else %}
+            <!-- Muestra un espacio en blanco si no hay URL de imagen -->
+            <div style="width: 100%; height: 200px; background-color: #f0f0f0;"></div>
+        {% endif %}
+    <div class="card-body">
             <h2 class="card-title">{{ titulo }}</h2>
         </div>
         <div class="card-footer">

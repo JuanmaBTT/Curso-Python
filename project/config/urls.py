@@ -17,8 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+#Para las imágenes
 
-from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -26,11 +28,6 @@ urlpatterns = [
     path("cliente/", include("cliente.urls")),
     path("producto/", include("producto.urls")),
     path("about/", include("about.urls")),
-    # path("saludar/", views.saludo),
-    # path("otra_vista/", views.saludo_vista),
-    # path("nombre/<nombre>/<apellido>", views.nombre),
-    # path("probando_template/", views.probando_template),
-    # path("hora", views.fecha_hora),
-    # path("notas/", views.mis_notas),
-    # path("ver_persona/", views.ver_persona),
 ]
+
+urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

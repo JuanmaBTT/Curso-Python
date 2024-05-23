@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+{% include 'core/componentes/titulo1.html' with titulo='Sobre Nosotros: Lista' %}
+{% endblock titulo %}
+
+{% block contenido %}
+<div class="container my-5">
+    <div class="py-4">
+        <form class="input-group mb-3"
+              action="{% url 'about:about_list' %}"
+              method="get">
+            <input type="text"
+                   class="form-control"
+                   name="consulta"
+                   placeholder="Buscar..."
+                   aria-label="Buscar">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+        </form>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col" style="color: white;">Nombre</th>
+                <th scope="col" style="color: white;">Apellido</th>
+                <th scope="col" style="color: white;">Detalle</th>
+                <th scope="col" style="color: white;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for about in object_list %}
+                <tr>
+                    <td style="color: white;">{{ about.nombre }}</td>
+                    <td style="color: white;">{{ about.apellido }}</td>
+                    <td style="color: white;">{{ about.descripcion }}</td>
+                    <td>
+                        <a class="btn btn-info btn-sm me-1"
+                           href="{% url 'about:about_detail' about.id %}">Detalle</a>
+                        <a class="btn btn-warning btn-sm me-1"
+                           href="{% url 'about:about_update' about.id %}">Cambiar</a>
+                        <a class="btn btn-danger btn-sm"
+                           href="{% url 'about:about_delete' about.id %}">Borrar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-secondary"
+           style="display: flex;
+                  justify-content: center;
+                  align-items: center"
+        href="{% url 'about:home' %}">Volver al inicio de Sobre Nosotros</a>
+    </div>
+
+{% endblock contenido %}

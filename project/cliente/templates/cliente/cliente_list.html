@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    {% include 'core/componentes/titulo1.html' with titulo='    Cliente: Lista de Clientes' %}
+{% endblock titulo %}
+{% block contenido %}
+    <div class="container my-5">
+        <div class="py-lg-4 ">
+            <form class="input-group mb-3"
+                  action="{% url 'cliente:cliente_list' %}"
+                  method="get">
+                  <input type="text"
+                  class="form-control"
+                  name="consulta"
+                  placeholder="Buscar..."
+                  aria-label="Buscar">
+           <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+        </form>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col" style="color: white;">Nombre de Usuario</th>
+                <th scope="col" style="color: white;">Nombre Cliente</th>
+                <th scope="col" style="color: white;">Apellido</th>
+                <th scope="col" style="color: white;">Documento</th>
+                <th scope="col" style="color: white;">Fecha de Nacimiento</th>
+                <th scope="col" style="color: white;">País</th>
+                <th scope="col" style="color: white;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in object_list %}
+                <tr>
+                    <td style="color: white;">{{ cliente.user }}</td>
+                    <td style="color: white;">{{ cliente.nombre }}</td>
+                    <td style="color: white;">{{ cliente.apellido }}</td>
+                    <td style="color: white;">{{ cliente.documento }}</td>
+                    <td style="color: white;">{{ cliente.nacimiento }}</td>
+                    <td style="color: white;">{{ cliente.pais_origen_id }}</td>
+                    <td>    
+                    <a class="btn btn-info btn-sm me-1" href="{% url 'cliente:cliente_detail' cliente.id %}">Detalle</a>
+                    <a class="btn btn-warning btn-sm me-1" href="{% url 'cliente:cliente_update' cliente.id %}">Cambiar</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'cliente:cliente_delete' cliente.id %}">Borrar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="mt-4">
+    <a class="btn btn-secondary"
+       href="{% url 'cliente:home' %}"
+       role="button">Volver al inicio de Cliente</a>
+</div>
+</div>
+{% endblock contenido %}

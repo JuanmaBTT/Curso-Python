@@ -1,18 +1,55 @@
 {% extends 'core/base.html' %}
+{% load static %}
+
 {% block titulo %}
-    {% include 'core/componentes/titulo1.html' with titulo='About' %}
+    {% include 'core/componentes/titulo1.html' with titulo='Sobre Nosotros' %}
 {% endblock titulo %}
 {% block contenido %}
-    <p>
-        <a href="about/create">Crear About</a>
-        <p>
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0"
+                 src="{% static 'core/img/moradita.webp' %}"
+                 alt="..." />
+        </div>
+        <div class="col-lg-5" style="padding: 20px;">
+            <h1 class="font-weight-light" style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                Moradita</h1>
+                <p style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                    La "moradita", como un nido acogedor entre las ramas de un árbol. Con cada pensamiento, es como construir un nuevo rincón de sueños y risas. Es el lugar donde tus recuerdos se acomodan como juguetes en un cofre, llenando el espacio con colores y alegrías. Es el refugio donde la imaginación vuela alto y los corazones jóvenes encuentran su morada más dulce.
+            </p>
+
+        </div>
+    </div>
+    {% if user.is_staff %}
+        <a class="btn btn-primary"
+           style="margin-bottom: 100px"
+           href="about/create">Nuevo Integrante</a>
+        <a class="btn btn-primary"
+           style="margin-bottom: 100px"
+           href="about/list">Listar Integrantes</a>
+    {% endif %}
     <div class="row row-cols-1 row-cols-md-2">
         {% for about in about %}
             <div class="col mb-3 ">
                 <div class="card">
                     <div class="card-body">
+                        {% if about.imagen %}
+                        <img src="{{ about.imagen.url }}"
+                             class="card-img-top"
+                             alt="Imagen de la tarjeta">
+                    {% else %}
+                        <!-- Mostrar una imagen alternativa o un espacio en blanco si no hay imagen -->
+                        <div style="width: 100%; height: 370px; background-color: #f0f0f0;"></div>
+                    {% endif %}
                         <h2 class="card-title ">{{ about.nombre }} {{ about.apellido }}</h2>
                         <p class="card-text text-muted">Detalle: {{ about.descripcion }}</p>
+                        {% if user.is_staff %}
+                            <a class="btn btn-primary"
+                               href="{% url 'about:about_update' about.id %}">Actualizar Integrante</a>
+                            <a class="btn btn-primary"
+                               href="{% url 'about:about_delete' about.id %}">Borrar Integrante</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

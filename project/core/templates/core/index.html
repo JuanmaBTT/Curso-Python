@@ -1,39 +1,42 @@
 {% extends 'core/base.html' %}
 {% load static %}
-
 {% block titulo %}
-
-{% include 'core/componentes/titulo1.html' with titulo='App Moradita' %}
-                
+    {% include 'core/componentes/titulo1.html' with titulo='Moradita App' %}
 {% endblock titulo %}
-
 {% block contenido %}
- <!-- Heading Row-->
- <div class="row gx-4 gx-lg-5 align-items-center my-5">
-    <div class="col-lg-7">
-        <img class="img-fluid rounded mb-4 mb-lg-0"
-             src="{% static 'core/img/moradita.webp' %}"
-             alt="..." />
+
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body">
+            <p class="text-white m-0">
+                Embellece tu hogar con muebles y accesorios que encantan. ¡Descubre nuestra colección y haz de tu espacio un lugar único y acogedor!
+            </p>
+        </div>
     </div>
-    <div class="col-lg-5">
-        <h1 class="font-weight-light">Moradita</h1>
-        <p>
-            La "moradita", como un nido acogedor entre las ramas de un árbol. Con cada pensamiento, es como construir un nuevo rincón de sueños y risas. Es el lugar donde tus recuerdos se acomodan como juguetes en un cofre, llenando el espacio con colores y alegrías. Es el refugio donde la imaginación vuela alto y los corazones jóvenes encuentran su morada más dulce.        </p>
-        <a class="btn btn-primary" href="https://wa.me/59895491797" target="_blank">Whatsapp</a>
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+        {% for producto_categoria in productos_categoria %}
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <!-- Verificar si el producto tiene una imagen -->
+                    {% if producto_categoria.imagen %}
+                        <img src="{{ producto_categoria.imagen.url }}"
+                             class="card-img-top"
+                             alt="Imagen de la tarjeta">
+                    {% else %}
+                        <!-- Mostrar una imagen alternativa o un espacio en blanco si no hay imagen -->
+                        <div style="width: 100%; height: 370px; background-color: #f0f0f0;"></div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h2 class="card-title">{{ producto_categoria.nombre }}</h2>
+                        <p class="card-text">{{ texto }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary btn-sm"
+                           href="{% url 'core:detalle_categoria' title=producto_categoria.nombre %}">Más Info</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-</div>
-<!-- Call to Action-->
-<div class="card text-white bg-secondary my-5 py-4 text-center">
-    <div class="card-body">
-        <p class="text-white m-0">
-        Embellece tu hogar con muebles que encantan. ¡Descubre nuestra colección y haz de tu espacio un lugar único y acogedor!        </p>
-    </div>
-</div>
-<!-- Content Row-->
-<div class="row gx-4 gx-lg-5">
-    {% for tarjeta in datos_tarjetas %}
-    {% include 'core/componentes/card.html' with titulo=tarjeta.titulo texto=tarjeta.texto imagen=tarjeta.imagen %}
-{% endfor %}
-</div>
-    {% endblock contenido %}
-    
+{% endblock contenido %}

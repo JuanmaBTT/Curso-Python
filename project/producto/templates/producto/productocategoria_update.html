@@ -1,7 +1,8 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-    Productos: Cambiar una Categoría de Productos
+{% include 'core/componentes/titulo1.html' with titulo='Productos: Cambiar una Categoría de Productos
+' %}
 {% endblock titulo %}
 
 {% block contenido %}
@@ -11,10 +12,14 @@
         <table>
             {{ form.as_table }}
         </table>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary mb-4">Guardar</button>
     </form>
-    <div class="fs-3 pb-4">
-        <a href="{% url 'producto:productocategoria_list' %}">Volver</a>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-secondary"
+           style="display: flex;
+                  justify-content: center;
+                  align-items: center"
+           href="{% url 'producto:productocategoria_list' %}">Volver</a>
     </div>
 
 {% endblock contenido %}

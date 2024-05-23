@@ -14,4 +14,21 @@ class ProductoCategoriaForm(forms.ModelForm):
         widgets = {
             "nombre": forms.TextInput(attrs={"class": "form-control"}),
             "descripcion": forms.TextInput(attrs={"class": "form-control"}),
+            "imagen": forms.ClearableFileInput(attrs={"class": "form-control"}),
+
+        }
+
+
+class ProductoForm(forms.ModelForm):
+    class Meta:
+        model = models.Producto
+        fields = "__all__"
+        widgets = {
+            "nombre": forms.TextInput(attrs={"class": "form-control"}),
+            "descripcion": forms.TextInput(attrs={"class": "form-control"}),
+            "unidad_medida": forms.TextInput(attrs={"class": "form-control"}),
+            "precio": forms.TextInput(attrs={"class": "form-control"}),
+            "categoria_id": forms.Select(attrs={"class": "form-control"}),
+            "fecha_actualizacion": forms.TextInput(attrs={"class": "form-control"}),
+            "imagen": forms.ClearableFileInput(attrs={"class": "form-control"}),
         }

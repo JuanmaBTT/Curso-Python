@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    {% if form.instance.pk %}
+        {% include 'core/componentes/titulo1.html' with titulo='Sobre Nosotros:Editar Integrante' %}
+    {% else %}
+        {% include 'core/componentes/titulo1.html' with titulo='Sobre Nosotros: Crear Integrante' %}
+    {% endif %}
+{% endblock titulo %}
+{% block contenido %}
+    <form method="post" style="margin-bottom: 20px;" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-secondary"
+           style="display: flex;
+                  justify-content: center;
+                  align-items: center"
+           href="{% url 'about:home' %}">Volver al inicio de Sobre Nosotros</a>
+    </div>
+{% endblock contenido %}

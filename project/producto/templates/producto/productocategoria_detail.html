@@ -1,6 +1,8 @@
 {% extends 'core/base.html' %}
 {% block titulo %}
-    Productos: Detalle de una Categoría de Producto
+{% include 'core/componentes/titulo1.html' with titulo='Productos: Detalle Categoría de Producto' %}
+
+    
 {% endblock titulo %}
 
 {% block contenido %}
@@ -8,10 +10,17 @@
     <ul>
         <li>Nombre: {{ producto.nombre }}</li>
         <li>Descripción: {{ producto.descripcion }}</li>
+        <img src="{{ producto_categoria.imagen.url }}"
+        class="card-img-top"
+        alt="Imagen de la tarjeta">
     </ul>
 
-    <div class="fs-3 pb-4">
-        <a href="{% url 'producto:productocategoria_list' %}">Volver</a>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-secondary"
+           style="display: flex;
+                  justify-content: center;
+                  align-items: center"
+           href="{% url 'producto:productocategoria_list' %}">Volver</a>
     </div>
 
 {% endblock contenido %}

@@ -1,16 +1,27 @@
 {% extends 'core/index.html' %}
 
 {% block contenido %}
-        <h2 class="card-title">{{ datos_tarjeta.titulo }}</h2>
-        <img src="{{ datos_tarjeta.imagen }}"
+<div class="col-lg-5" style="padding: 20px;">
+    <h2 class="font-weight-light" style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ producto.nombre }}</h2>
+        {% if producto.imagen %}
+            <img src="{{ producto.imagen.url }}"
              class="card-img-top"
              alt="Imagen de la tarjeta"
-             style="max-width: 20%; height: auto;">
-            <p class="card-text">{{ datos_tarjeta.texto }}</p>
-            <p class="card-text">{{ datos_tarjeta.precio }}</p>
+             style="max-width: 50%; height: auto;">
+        {% else %}
+        <!-- Aquí puedes mostrar un mensaje o una imagen alternativa en caso de que no haya imagen -->
+        <p>No hay imagen disponible</p>
+        {% endif %}
+        <p style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+            {{ producto.descripcion }}</p>
+            <p style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                {{ producto.precio }}</p>
 
-<div class="fs-3 pb-4">
-    <a href="{% url 'core:home' %}">Volver a Inicio</a>
-</div>
+    <div class="fs-3 pb-4">
+        <a class="btn btn-secondary"
+        style="display: flex;
+           justify-content: center;
+           align-items: center"href="{% url 'core:home' %}">Volver a Inicio</a>
+    </div>
 {% endblock contenido %}
 

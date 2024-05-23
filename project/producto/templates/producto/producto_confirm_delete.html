@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+{% include 'core/componentes/titulo1.html' with titulo='Producto: Borrar Producto' %}
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <p class="fs-5 fst-italic" style="color: white;">¿Confirma eliminar "{{ object.nombre }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger mb-4" style="color: white;">Confirmar</button>
+    </form>
+    <div class="fs-3 pb-4">
+        <a class="btn btn-secondary" style="color: white; display: flex; justify-content: center; align-items: center;" href="{% url 'producto:home' %}">Volver al inicio de Producto</a>
+    </div>
+
+{% endblock contenido %}

@@ -1,11 +1,16 @@
 # Página Web Moradita
->Orientada a la venta de artículos de hogar.
->Tiene 3 Apps: Clientes, About y Categoría de Productos (en la base es productos).
->Se pueden generar formularios en las 3 apps. Para el proyecto final imagino los formularios puedan estar visibles solo para X rol, Ejemplo: Admin/SuperUser.
->En Categoría de Productos se pueden crear categorías así como buscar. Por ejemplo: si buscamos limpieza se obtiene dicha categoría y la descripción.
->En la página principal se puede seleccionar el botón de "Whatsapp" y deriva a mi número de teléfono.
->En los artículos y se selecciona "Más info" figura el precio, así como una descripción de la referencia.
->En Python hay muchos archivos que no se están utilizando porque si bien aún no los he puesto en práctica para el proyecto final los visualizo, como el CRUDE y por ende ya lo dejé presentado en dicha App. 
+
+>Orientada a la venta de artículos y accesorios para el hogar.
+>Tiene 3 Apps principales: Clientes, About(Sobre Nosotros) y Productos (en la cual está Categoría Productos y Productos).
+>Tiene múltiples formularios: Para los usuarios corrientes el registrarse y loguearse.
+>Para el admin, además de ellos, tiene CRUDE en Categoría de Productos, Productos, "Sobre Nosotros" y también se puede listar, borrar y editar clientes, además de agregar países para que los clientes indiquen como propios.Esto fue uno de los avances vs la versión pasada que indiqué: "Se pueden generar formularios en las 3 apps. Para el proyecto final imagino los formularios puedan estar visibles solo para X rol, Ejemplo: Admin/SuperUser" y así lo hice.
+>En Categoría de Productos se pueden crear categorías así como buscar, editar o borrar. Por ejemplo: si buscamos limpieza se obtiene dicha categoría y la descripción. También pueden probar con Productos, About o Clientes.
+>En el navbar añadí el logo de Whatsapp para que, en caso de clickear allí, la página derive a mi contacto y así poder concretar la venta. Antes estaba como un botón en la página principal y entiendo esto es una sustancial mejora porque siempre está visible para el cliente.
+>Otra sustancial mejora que se realizó es que en la página principal ya no están más los productos, sino las categorías y a su vez relacioné los productos a esas categorías, por lo que se generan secciones automáticamente ante la creación tanto de Categorías como de Prodcutos. En las Categorías si se selección "Más Info" dirige a los artículos de dicha categoría y si a los artículos se le selecciona "Más info" figura el precio, así como una descripción de la referencia.
+>Por último depure prácticamente todo lo que estaba en Python y no se estaba utilizando para dejar lo más prolijo el backend y no solo enfocarme en el frontend.
+>Creo que quedó muy buena la página y estoy muy orgulloso por el tiempo y pasión que le dedique a la misma.
+
+Ojalá que les guste!!
 
 
 

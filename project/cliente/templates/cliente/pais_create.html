@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+{% include 'core/componentes/titulo1.html' with titulo='Cliente: Creación de País' %}
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit" class="btn btn-primary mb-4" style="margin-top: 20px; color: white;">Guardar</button>
+    </form>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-secondary" style="color: white; display: flex; justify-content: center; align-items: center;" href="{% url 'cliente:home' %}">Volver al inicio de Producto</a>
+    </div>
+
+{% endblock contenido %}

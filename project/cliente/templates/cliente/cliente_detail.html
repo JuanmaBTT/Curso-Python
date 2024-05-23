@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+{% include 'core/componentes/titulo1.html' with titulo='Cliente: Detalle' %}
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <ul>
+        <li>Nombre: {{ cliente.nombre }}</li>
+        <li>Apellido: {{ cliente.apellido }}</li>
+        <li>Imagen: <img src="{{ cliente.imagen.url }}" alt="Imagen del cliente"></li>
+    </ul>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-secondary"
+           style="display: flex;
+                  justify-content: center;
+                  align-items: center"
+        href="{% url 'cliente:cliente_list' %}">Volver</a>
+    </div>
+
+{% endblock contenido %}

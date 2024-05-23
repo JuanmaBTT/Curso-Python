@@ -1,27 +1,47 @@
 {% extends 'core/base.html' %}
 {% block titulo %}
-    Productos: Lista de Categoría de Productos
+    {% include 'core/componentes/titulo1.html' with titulo='    Productos: Lista de Categoría de Productos' %}
 {% endblock titulo %}
-
 {% block contenido %}
-
-    <div class="py-lg-4 ">
-        <form action="{% url 'producto:home' %}" method="get">
-            <input type="text" name="consulta" placeholder="Buscar...">
+    <div class="container my-5">
+        <div class="py-lg-4 ">
+            <form class="input-group mb-3"
+                  action="{% url 'producto:productocategoria_list' %}"
+                  method="get">
+                  <input type="text"
+                  class="form-control"
+                  name="consulta"
+                  placeholder="Buscar..."
+                  aria-label="Buscar">
+           <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
         </form>
     </div>
-    <ul>
-        {% for producto in productos %}
-            <li>{{ producto.nombre }}
-                <a href="{% url 'producto:productocategoria_detail' producto.id %}">Detalle</a>
-                <a href="{% url 'producto:productocategoria_update' producto.id %}">Cambiar</a>
-                <a href="{% url 'producto:productocategoria_delete' producto.id %}">Borrar</a>
-            </li>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col" style="color: white;">Categoría</th>
+                <th scope="col" style="color: white;">Cantidad de Artículos</th>
+                <th scope="col" style="color: white;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in object_list %}
+                <tr>
+                    <td style="color: white;">{{ categoria.nombre }}</td>
+                    <td style="color: white;">{{ categoria.num_productos }}</td>
+                    <td>    
+                    <a class="btn btn-info btn-sm me-1" href="{% url 'producto:productocategoria_detail' categoria.id %}">Detalle</a>
+                    <a class="btn btn-warning btn-sm me-1" href="{% url 'producto:productocategoria_update' categoria.id %}">Cambiar</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'producto:productocategoria_delete' categoria.id %}">Borrar</a>
+                </td>
+            </tr>
         {% endfor %}
-    </ul>
-
-    <div class="fs-3 pb-4">
-        <a href="{% url 'producto:home' %}">Volver al inicio de Producto</a>
-    </div>
-
+    </tbody>
+</table>
+<div class="mt-4">
+    <a class="btn btn-secondary"
+       href="{% url 'producto:home' %}"
+       role="button">Volver al inicio de Producto</a>
+</div>
+</div>
 {% endblock contenido %}

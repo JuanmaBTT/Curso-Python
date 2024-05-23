@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+{% include 'core/componentes/titulo1.html' with titulo='Sobre Nosotros: Detalle' %}
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <ul>
+        <li>Nombre: {{ about.nombre }}</li>
+        <li>Imagen: <img src="{{ about.imagen.url }}" alt="Imagen del producto"></li>
+    </ul>
+
+    <div class="fs-3 pb-4">
+        <a href="{% url 'about:about_list' %}">Volver</a>
+    </div>
+
+{% endblock contenido %}
